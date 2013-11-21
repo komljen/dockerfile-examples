@@ -22,7 +22,8 @@ s/localhost/$MYSQL_PORT_3306_TCP_ADDR/
 /'AUTH_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/
 /'SECURE_AUTH_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/
 /'LOGGED_IN_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/
-/'NONCE_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/" /var/www/wp-config-sample.php > /var/www/wp-config.php
+/'NONCE_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/"              \
+/var/www/wp-config-sample.php > /var/www/wp-config.php
 
 chown -R www-data: /var/www
 
