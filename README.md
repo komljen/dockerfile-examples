@@ -1,4 +1,14 @@
-Docker
+Wordpress Docker
+======
+
+Get your latest wordpress up and running in seconds. 
+
+Dependencies
+======
+
+Installed docker 0.6.6 ->
+
+Getting started
 ======
 
 To build all docker images run:
