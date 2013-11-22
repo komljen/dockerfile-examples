@@ -5,7 +5,6 @@
 set -e
 
 HOME="$( cd "$( dirname "$0" )" && pwd )"
-APPS=${APPS:-/mnt/apps}
 #-------------------------------------------------------------------------------
 build(){
     echo "Build docker images:"
@@ -36,7 +35,6 @@ start(){
     echo "Starting mysql:"
     docker run -d -name mysql komljen/mysql
     echo "Starting wordpress:"
-    mkdir -p $APPS/wordpress/data
     docker run -d -name wordpress                                              \
                   -p 80:80                                                     \
                   -link mysql:mysql komljen/wordpress
