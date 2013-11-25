@@ -4,30 +4,32 @@
 #===============================================================================
 set -e
 
-HOME="$( cd "$( dirname "$0" )" && pwd )"
+home="$( cd "$( dirname "$0" )" && pwd )"
+images=(ubuntu mysql apache wordpress)
+containers=(mysql wordpress)
 #-------------------------------------------------------------------------------
 build(){
     echo "Build docker images:"
-    docker build -t komljen/ubuntu $HOME/ubuntu/.
-    docker build -t komljen/mysql $HOME/mysql/.
-    docker build -t komljen/apache $HOME/apache/.
-    docker build -t komljen/wordpress $HOME/wordpress/.
+    for image in "${images[@]}"
+    do
+        docker build -t komljen/$image $home/$image/.
+    done
 }
 #-------------------------------------------------------------------------------
 rebuild(){
     echo "Rebuild docker images:"
-    docker build -no-cache -t komljen/ubuntu $HOME/ubuntu/.
-    docker build -no-cache -t komljen/mysql $HOME/mysql/.
-    docker build -no-cache -t komljen/apache $HOME/apache/.
-    docker build -no-cache -t komljen/wordpress $HOME/wordpress/.
+    for image in "${images[@]}"
+    do
+        docker build -no-cache -t komljen/$image $home/$image/.
+    done
 }
 #-------------------------------------------------------------------------------
 stop(){
-    docker ps
+    set +e
     echo "Stopping docker containers:"
-    for i in {mysql,wordpress}
+    for container in "${containers[@]}"
     do
-        docker stop $i
+        docker stop $container
     done
 }
 #-------------------------------------------------------------------------------
@@ -45,9 +47,9 @@ start(){
 kill(){
     set +e
     echo "Killing docker containers:"
-    for i in {mysql,wordpress}
+    for container in "${containers[@]}"
     do
-        docker kill $i
+        docker kill $container
     done
 }
 #-------------------------------------------------------------------------------
