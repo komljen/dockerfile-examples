@@ -50,7 +50,7 @@ start(){
     port_cmd=$(if [ ! -z "$port" ]; then echo "-p ${port}:${port}"; fi)
     links=$(cat $conf | shyaml get-value ${app}.links | cut -d' ' -f2)
     links_cmd=$(for link in ${links}; do echo "-link ${link}:${link}"; done)
-    
+
     for link in $links
     do
         echo "Starting ${link}:"
