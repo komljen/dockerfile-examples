@@ -1,24 +1,25 @@
-Wordpress Docker
+Docker
 ======
 
-Get your latest wordpress up and running in seconds. 
+Multilpe docker images 
 
 Dependencies
 ======
 
-Installed docker 0.6.6 ->
+- Installed docker 0.6.6 ->
+- shyaml shell yaml parser (pip install shyaml)
 
-Getting started
+WordPress
 ======
 
-To build all docker images run:
+To build WordPress docker images run:
 ```
-./wp_env.sh build
-```
-
-Next start wordpress:
-```
-./wp_env.sh start
+./env.sh build wp
 ```
 
-Your wordpress installation will be available at http://localhost:80
+To start WordPress:
+```
+./env.sh start wp
+```
+
+Your WordPress installation will be available at http://localhost:80
