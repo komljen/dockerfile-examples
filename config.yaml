@@ -1,0 +1,31 @@
+wp:
+    name: wordpress
+    port: "80"
+    images:
+        - ubuntu
+        - mysql
+        - apache
+        - wordpress
+    containers:
+        - mysql
+        - wordpress
+    links:
+        - mysql
+
+redis:
+    name: redis
+    port: "6379"
+    images:
+        - ubuntu
+        - redis
+    containers:
+        - redis
+
+mongo:
+    name: mongodb
+    port: "27017"
+    images:
+        - ubuntu
+        - mongodb
+    containers:
+        - mongodb

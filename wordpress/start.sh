@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 #===============================================================================
+#
 #    AUTHOR: Alen Komljen <alen.komljen@live.com>
+#
 #===============================================================================
 echo "Waiting for mysql:"
 until $(: </dev/tcp/$MYSQL_PORT_3306_TCP_ADDR/$MYSQL_PORT_3306_TCP_PORT)

@@ -1,24 +1,18 @@
 #!/usr/bin/env bash
 #===============================================================================
-#
+# 
 #    AUTHOR: Alen Komljen <alen.komljen@live.com>
 #
 #===============================================================================
-echo "Starting mysql:"
-/usr/bin/mysqld_safe &
+CONF="/etc/postgresql/${VERSION}/main/postgresql.conf"
+DATA="/var/lib/postgresql/${VERSION}/main"
+POSTGRES="/usr/lib/postgresql/${VERSION}/bin/postgres"
 #-------------------------------------------------------------------------------
-until $(mysqladmin ping > /dev/null 2>&1)
-do
-    :
-done
-#-------------------------------------------------------------------------------
-echo "Setting root password:"
-mysqladmin -u $USER password $PASS
-mysql -u $USER -p$PASS <<EOF
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$PASS' WITH GRANT OPTION;
+echo "Creating superuser: ${USER}"
+su postgres -c "${POSTGRES} --single -D ${DATA} -c config_file=${CONF}" <<EOF
+CREATE USER $USER WITH SUPERUSER PASSWORD '$PASS';
 EOF
 #-------------------------------------------------------------------------------
-echo "Restarting mysql:"
-mysqladmin -p$PASS shutdown
-/usr/bin/mysqld_safe
+echo "Starting postgres:"
+su postgres -c "${POSTGRES} -D ${DATA} -c config_file=${CONF}"
 #===============================================================================
