@@ -3,6 +3,11 @@ Docker
 
 Multilpe docker images 
 
+Image layers
+======
+
+<img src="https://dl.dropboxusercontent.com/s/7u6fw9ytl6kxdiu/image_layers.png" title="Image layers" />
+
 Dependencies
 ======
 
