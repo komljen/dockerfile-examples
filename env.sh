@@ -29,11 +29,10 @@ rebuild(){
 }
 #-------------------------------------------------------------------------------
 stop(){
-    set +e
     echo "Stopping docker containers:"
     for container in $containers
     do
-        docker stop $container
+        docker stop $container || true
     done
 }
 #-------------------------------------------------------------------------------
@@ -59,11 +58,10 @@ start(){
 }
 #-------------------------------------------------------------------------------
 kill(){
-    set +e
     echo "Killing docker containers:"
     for container in $containers
     do
-        docker kill $container
+        docker kill $container || true
     done
 }
 #-------------------------------------------------------------------------------
@@ -79,7 +77,7 @@ rmi(){
 #-------------------------------------------------------------------------------
 usage (){
     echo "USAGE: $0" option key
-    
+
     echo -e "\nOptions:"
     for opt in $opts
     do
