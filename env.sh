@@ -78,18 +78,18 @@ rmi(){
 }
 #-------------------------------------------------------------------------------
 usage (){
-    echo "Usage: $0" option key
+    echo "USAGE: $0" option key
     
     echo -e "\nOptions:"
     for opt in $opts
     do
-        echo " - ${opt}"
+        echo "    ${opt}"
     done
 
     echo -e "\nKeys from config.yaml:"
     for key in $keys
     do
-        echo " - ${key}"
+        echo "    ${key}"
     done
     echo ""
     exit 1
