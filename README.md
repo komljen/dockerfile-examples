@@ -5,23 +5,23 @@ Docker images which can be simply reused for whatever you want.
 
 Script env.sh reads config.yaml, so you don't need to update this script if you want to change something or to add new Docker image. Usage info:
 ```
-Usage: ./env.sh option key
+USAGE: ./env.sh option key
 
 Options:
- - start
- - stop
- - restart
- - build
- - rebuild
- - kill
- - rm
- - rmi
+    start
+    stop
+    restart
+    build
+    rebuild
+    kill
+    rm
+    rmi
 
 Keys from config.yaml:
- - wp
- - redis
- - mongo
- - rails
+    wp
+    redis
+    mongo
+    rails
 ```
 
 **NOTE:**
