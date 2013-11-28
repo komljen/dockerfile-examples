@@ -29,3 +29,14 @@ mongo:
         - mongodb
     containers:
         - mongodb
+
+rails:
+    name: rails-sample-app
+    port: "3000"
+    images:
+        - ubuntu
+        - ruby
+        - ruby-rails
+        - rails-sample-app
+    containers:
+        - rails-sample-app
