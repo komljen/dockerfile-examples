@@ -12,4 +12,4 @@ ADD start.sh start.sh
 VOLUME ["/opt"]
 
 EXPOSE 3000
-CMD ["./start.sh"]
+CMD ["/start.sh"]
