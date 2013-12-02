@@ -6,4 +6,4 @@ RUN apt-get -qq update
 RUN apt-get -qy install redis-server
 
 EXPOSE 6379
-CMD ["usr/bin/redis-server"]
+CMD ["/usr/bin/redis-server"]

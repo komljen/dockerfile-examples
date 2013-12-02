@@ -124,6 +124,7 @@ case "$1" in
         ;;
     kill)
         kill
+        rm
         ;;
     rm)
         rm

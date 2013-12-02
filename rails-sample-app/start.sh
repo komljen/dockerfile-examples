@@ -7,7 +7,7 @@
 echo "Pull latest changes:"
 cd $APP_ROOT
 git pull origin master
-cp $APP_ROOT/config/database.yml.example $APP_ROOT/config/database.yml
+cp config/database.yml.example config/database.yml
 bundle install
 rake db:migrate
 #-------------------------------------------------------------------------------

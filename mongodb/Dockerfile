@@ -11,4 +11,4 @@ RUN apt-get -qy install mongodb-10gen=$MONGO_VERSION
 VOLUME ["/data/db"]
 
 EXPOSE 27017
-CMD ["usr/bin/mongod"]
+CMD ["/usr/bin/mongod"]

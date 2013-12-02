@@ -40,3 +40,36 @@ rails:
         - rails-sample-app
     containers:
         - rails-sample-app
+
+ssg:
+    name: rails-ssg
+    port: "3000"
+    images:
+        - ubuntu
+        - postgres
+        - ruby
+        - ruby-rails
+        - rails-ssg
+    containers:
+        - postgres
+        - rails-ssg
+    links:
+        - postgres
+
+discourse:
+    name: discourse
+    port: "3000"
+    images:
+        - ubuntu
+        - postgres
+        - redis
+        - ruby
+        - ruby-rails
+        - discourse
+    containers:
+        - postgres
+        - discourse
+        - redis
+    links:
+        - postgres
+        - redis
