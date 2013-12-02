@@ -42,17 +42,17 @@ rails:
         - rails-sample-app
 
 ssg:
-    name: rails-ssg
+    name: ssg
     port: "3000"
     images:
         - ubuntu
         - postgres
         - ruby
         - ruby-rails
-        - rails-ssg
+        - ssg
     containers:
         - postgres
-        - rails-ssg
+        - ssg
     links:
         - postgres
 
