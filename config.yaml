@@ -57,20 +57,3 @@ ssg:
     links:
         - postgres
 
-discourse:
-    name: discourse
-    port: "3000"
-    images:
-        - ubuntu
-        - postgres
-        - redis
-        - ruby
-        - ruby-rails
-        - discourse
-    containers:
-        - postgres
-        - discourse
-        - redis
-    links:
-        - postgres
-        - redis
