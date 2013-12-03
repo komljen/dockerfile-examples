@@ -1,4 +1,4 @@
-FROM komljen/apache
+FROM komljen/php-apache
 MAINTAINER Alen Komljen <alen.komljen@live.com>
 
 ENV WP_PASS aeshiethooghahtu4Riebooquae6Ithe

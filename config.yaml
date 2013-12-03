@@ -5,6 +5,7 @@ wp:
         - ubuntu
         - mysql
         - apache
+        - php-apache
         - wordpress
     containers:
         - mysql
