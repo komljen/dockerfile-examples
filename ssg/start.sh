@@ -13,8 +13,13 @@ done
 echo "Creating database:"
 ./create_db.sh
 #-------------------------------------------------------------------------------
-echo "Create database.yml:"
-cat > $APP_ROOT/config/database.yml <<EOF
+echo "Pulling latest changes:"
+cd $APP_ROOT
+git pull origin master
+bundle install
+#-------------------------------------------------------------------------------
+echo "Creating database.yml:"
+cat > config/database.yml <<EOF
 development:
   adapter: postgresql
   host: $POSTGRES_PORT_5432_TCP_ADDR
@@ -22,11 +27,6 @@ development:
   username: $RAILS_USER
   password: $RAILS_PASS
 EOF
-#-------------------------------------------------------------------------------
-echo "Pull latest changes:"
-cd $APP_ROOT
-git pull origin master
-bundle install
 rake db:migrate
 #-------------------------------------------------------------------------------
 echo "Starting rails:"
