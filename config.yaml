@@ -57,3 +57,13 @@ ssg:
     links:
         - postgres
 
+ghost:
+    name: ghost
+    port: "2368"
+    images:
+        - ubuntu
+        - nodejs
+        - ghost
+    containers:
+        - ghost
+
