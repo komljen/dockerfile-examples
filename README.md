@@ -23,6 +23,7 @@ Keys from config.yaml:
     mongo
     rails
     ssg
+    ghost
 ```
 
 **NOTE:**
@@ -90,3 +91,15 @@ To start SSG:
 ```
 ./env.sh start ssg
 ```
+
+Ghost example
+======
+
+To build Ghost images run:
+```
+./env.sh build ghost
+```
+
+To start Ghost:
+```
+./env.sh start ghost
