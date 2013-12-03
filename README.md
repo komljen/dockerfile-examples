@@ -22,6 +22,7 @@ Keys from config.yaml:
     redis
     mongo
     rails
+    ssg
 ```
 
 **NOTE:**
@@ -75,4 +76,17 @@ docker run -i -t -volumes-from wordpress -link mysql:mysql komljen/wordpress /bi
 To access to MySQL database from container:
 ```
 mysql -h $MYSQL_PORT_3306_TCP_ADDR -u $WP_USER -p$WP_PASS
+```
+
+SSG example
+======
+
+To build SSG (https://github.com/ssg-org/ssg) images run:
+```
+./env.sh build ssg
+```
+
+To start SSG:
+```
+./env.sh start ssg
 ```
