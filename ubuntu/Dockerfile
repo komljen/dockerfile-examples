@@ -3,7 +3,13 @@ MAINTAINER Alen Komljen <alen.komljen@live.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN dpkg-divert --local --rename --add /sbin/initctl
+RUN ln -s /bin/true /sbin/initctl
+
+RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup
+RUN echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache
+
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get -qq update
-RUN apt-get -qy upgrade
-RUN apt-get -qy install python-software-properties vim pwgen unzip curl git-core
+RUN apt-get -qqy upgrade
+RUN apt-get -qqy install python-software-properties vim pwgen unzip curl git-core
