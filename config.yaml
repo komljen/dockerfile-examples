@@ -67,3 +67,16 @@ ghost:
     containers:
         - ghost
 
+hipache:
+    name: hipache
+    port: "80"
+    images:
+        - ubuntu
+        - redis
+        - nodejs
+        - hipache
+    containers:
+        - hipache
+        - redis
+    links:
+        - redis
