@@ -24,6 +24,7 @@ Keys from config.yaml:
     rails
     ssg
     ghost
+    hipache
 ```
 
 **NOTE:**
