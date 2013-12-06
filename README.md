@@ -80,17 +80,17 @@ To access to MySQL database from container:
 mysql -h $MYSQL_PORT_3306_TCP_ADDR -u $WP_USER -p$WP_PASS
 ```
 
-SSG example
+Hipache example
 ======
 
-To build SSG (https://github.com/ssg-org/ssg) images run:
+To build Hipache images run:
 ```
-./env.sh build ssg
+./env.sh build hipache
 ```
 
-To start SSG:
+To start Hipache:
 ```
-./env.sh start ssg
+./env.sh start hipache
 ```
 
 Ghost example
