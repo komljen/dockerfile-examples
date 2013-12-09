@@ -101,6 +101,12 @@ To start Hipache:
 ./env.sh start hipache
 ```
 
+Updating redis configuration from new container:
+```
+docker run -t -rm -link redis:redis komljen/redis /bin/bash -c \
+'redis-cli -h $REDIS_PORT_6379_TCP_ADDR rpush frontend:www.dotcloud.com mywebsite'
+```
+
 Ghost example
 ======
 
