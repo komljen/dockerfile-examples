@@ -40,14 +40,22 @@ Image layers
 Dependencies
 ======
 
-Docker 0.6.6 and above:
+Docker 0.6.6 and above. Installation on Ubuntu 12.04.3:
 ```
-docker version
+wget -qO- https://get.docker.io/gpg | apt-key add -
+echo "deb http://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
+apt-get update
+apt-get -y install lxc-docker
 ```
 
 Shyaml shell yaml parser:
 ```
 apt-get -y install python-pip && pip install shyaml
+```
+
+When all is ready clone git repository:
+```
+git clone git@github.com:komljen/docker.git && cd docker
 ```
 
 WordPress example
