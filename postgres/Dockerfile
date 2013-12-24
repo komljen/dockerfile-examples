@@ -1,9 +1,13 @@
 FROM komljen/ubuntu
 MAINTAINER Alen Komljen <alen.komljen@live.com>
 
-ENV PG_VERSION 9.1
+ENV PG_VERSION 9.2
 ENV USER docker
 ENV PASS SiHRDZ3Tt13uVVyH0ZST
+
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+RUN curl -sL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+RUN apt-get -qq update
 
 RUN apt-get -qqy install postgresql-$PG_VERSION postgresql-contrib-$PG_VERSION
 

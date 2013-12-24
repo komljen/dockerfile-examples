@@ -1,7 +1,7 @@
 {
     "server": {
-        "debug": true,
-        "accessLog": "/tmp/proxy2_access.log",
+        "debug": false,
+        "accessLog": "/var/log/hipache.log",
         "port": 80,
         "workers": 2,
         "maxSockets": 100,
