@@ -13,6 +13,7 @@ done
 echo "Creating database:"
 ./create_db.sh
 #-------------------------------------------------------------------------------
+source /usr/local/rvm/scripts/rvm
 echo "Pulling latest changes:"
 cd $APP_ROOT
 git pull origin master
@@ -30,6 +31,5 @@ EOF
 rake db:migrate
 #-------------------------------------------------------------------------------
 echo "Starting rails:"
-source /usr/local/rvm/scripts/rvm
 rails s
 #===============================================================================

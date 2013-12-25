@@ -16,4 +16,5 @@ ADD pg_hba.conf etc/postgresql/$PG_VERSION/main/pg_hba.conf
 ADD start.sh start.sh
 
 EXPOSE 5432
+RUN rm /usr/sbin/policy-rc.d
 CMD ["/start.sh"]

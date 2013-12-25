@@ -10,4 +10,5 @@ ADD my.cnf /etc/mysql/my.cnf
 ADD start.sh start.sh
 
 EXPOSE 3306
+RUN rm /usr/sbin/policy-rc.d
 CMD ["/start.sh"]

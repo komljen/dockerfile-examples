@@ -16,4 +16,5 @@ ADD start.sh start.sh
 VOLUME ["/var/www"]
 
 EXPOSE 80
+RUN rm /usr/sbin/policy-rc.d
 CMD ["/start.sh"]

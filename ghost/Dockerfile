@@ -14,4 +14,5 @@ ADD start.sh start.sh
 VOLUME ["/data/app"]
 
 EXPOSE 2368
+RUN rm /usr/sbin/policy-rc.d
 CMD ["/start.sh"]
