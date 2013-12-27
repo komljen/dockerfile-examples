@@ -9,7 +9,7 @@ set -e
 home="$( cd "$( dirname "$0" )" && pwd )"
 conf="${home}/config.yaml"
 key=$2
-keys=$(cat $conf | egrep "^[a-z]" | cut -d':' -f1 | tr '\n' ' ')
+keys=$(egrep "^[a-z]" ${conf} | cut -d':' -f1 | tr '\n' ' ')
 opts="start stop restart build rebuild kill rm rmi"
 #-------------------------------------------------------------------------------
 build(){
@@ -37,20 +37,20 @@ stop(){
 }
 #-------------------------------------------------------------------------------
 start(){
-    id_name=$(cat $conf | shyaml get-value ${key}.id.name)
-    id_image=$(cat $conf | shyaml get-value ${key}.id.image)
-    id_port=$(cat $conf | shyaml get-value ${key}.id.port)
+    id_name=$(shyaml get-value $key.id.name < $conf)
+    id_image=$(shyaml get-value $key.id.image < $conf)
+    id_port=$(shyaml get-value $key.id.port < $conf)
     id_port_cmd=$(if [ ! -z "$id_port" ]; then echo "-p ${id_port}:${id_port}"; fi)
 
-    links_num=$(cat $conf | shyaml get-value ${key}.links | grep -c "name") || true
+    links_num=$(shyaml get-value $key.links < $conf | grep -c "name") || true
 
     if [ "$links_num" -ne 0 ]
     then
         n=0
         while [ "$n" -lt "$links_num" ]
         do
-            link_name=$(cat $conf | shyaml get-value ${key}.links.${n} | grep name | cut -d' ' -f2)
-            link_image=$(cat $conf | shyaml get-value ${key}.links.${n} | grep image | cut -d' ' -f2)
+            link_name=$(shyaml get-value $key.links.$n < $conf | grep name | cut -d' ' -f2)
+            link_image=$(shyaml get-value $key.links.$n < $conf | grep image | cut -d' ' -f2)
 
             echo "Starting ${link_name}:"
             docker run -d -name $link_name komljen/$link_image
@@ -118,8 +118,8 @@ then
     usage
 fi
 #-------------------------------------------------------------------------------
-images=$(cat $conf | shyaml get-value ${key}.images | cut -d' ' -f2)
-containers=$(cat $conf | shyaml get-value ${key} | grep name | cut -d':' -f2)
+images=$(shyaml get-value $key.images < $conf | cut -d' ' -f2)
+containers=$(shyaml get-value $key < $conf | grep name | cut -d':' -f2)
 #-------------------------------------------------------------------------------
 case "$1" in
     start)
