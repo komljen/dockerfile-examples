@@ -37,22 +37,39 @@ stop(){
 }
 #-------------------------------------------------------------------------------
 start(){
-    name=$(cat $conf | shyaml get-value ${key}.name)
-    port=$(cat $conf | shyaml get-value ${key}.port)
-    port_cmd=$(if [ ! -z "$port" ]; then echo "-p ${port}:${port}"; fi)
-    links=$(cat $conf | shyaml get-value ${key}.links | cut -d' ' -f2)
-    links_cmd=$(for link in ${links}; do echo "-link ${link}:${link}"; done)
+    id_name=$(cat $conf | shyaml get-value ${key}.id.name)
+    id_image=$(cat $conf | shyaml get-value ${key}.id.image)
+    id_port=$(cat $conf | shyaml get-value ${key}.id.port)
+    id_port_cmd=$(if [ ! -z "$id_port" ]; then echo "-p ${id_port}:${id_port}"; fi)
 
-    for link in $links
-    do
-        echo "Starting ${link}:"
-        docker run -d -name $link komljen/$link
-    done
+    links_num=$(cat $conf | shyaml get-value ${key}.links | grep -c "name") || true
 
-    echo "Starting ${name}:"
-    docker run -d -name $name                                                   \
-                  $port_cmd                                                     \
-                  $links_cmd komljen/$name
+    if [ "$links_num" -ne 0 ]
+    then
+        n=0
+        while [ "$n" -lt "$links_num" ]
+        do
+            link_name=$(cat $conf | shyaml get-value ${key}.links.${n} | grep name | cut -d' ' -f2)
+            link_image=$(cat $conf | shyaml get-value ${key}.links.${n} | grep image | cut -d' ' -f2)
+
+            echo "Starting ${link_name}:"
+            docker run -d -name $link_name komljen/$link_image
+
+            if [ ! -z "$links_cmd" ]
+            then
+                links_cmd=$(echo "-link ${link_name}:${link_image}")
+            else
+                links_cmd=$(echo $links_cmd" -link ${link_name}:${link_image}")
+            fi
+
+            n=$(( n+1 ))
+        done
+    fi
+
+    echo "Starting ${id_name}:"
+    docker run -d -name $id_name                                                \
+                  $id_port_cmd                                                  \
+                  $links_cmd komljen/$id_image
 
     docker ps
 }
@@ -102,7 +119,7 @@ then
 fi
 #-------------------------------------------------------------------------------
 images=$(cat $conf | shyaml get-value ${key}.images | cut -d' ' -f2)
-containers=$(cat $conf | shyaml get-value ${key}.containers | cut -d' ' -f2)
+containers=$(cat $conf | shyaml get-value ${key} | grep name | cut -d':' -f2)
 #-------------------------------------------------------------------------------
 case "$1" in
     start)

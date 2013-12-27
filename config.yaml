@@ -1,82 +1,79 @@
 wp:
-    name: wordpress
-    port: "80"
+    id:
+        image: wordpress
+        name: wp
+        port: "80"
     images:
         - ubuntu
         - mysql
         - apache
         - php-apache
         - wordpress
-    containers:
-        - mysql
-        - wordpress
     links:
-        - mysql
+        - {image: mysql, name: mysql-wp}
 
 redis:
-    name: redis
-    port: "6379"
+    id:
+        image: redis
+        name: redis
+        port: "6379"
     images:
         - ubuntu
-        - redis
-    containers:
         - redis
 
 mongo:
-    name: mongodb
-    port: "27017"
+    id:
+        image: mongodb
+        name: mongodb
+        port: "27017"
     images:
         - ubuntu
-        - mongodb
-    containers:
         - mongodb
 
 rails:
-    name: rails-sample-app
-    port: "3000"
+    id:
+        image: rails-sample-app
+        name: rails-sample-app
+        port: "3000"
     images:
         - ubuntu
         - ruby
         - ruby-rails
-        - rails-sample-app
-    containers:
         - rails-sample-app
 
 ssg:
-    name: ssg
-    port: "3000"
+    id:
+        image: ssg
+        name: ssg
+        port: "3000"
     images:
         - ubuntu
         - postgres
         - ruby
         - ruby-rails
         - ssg
-    containers:
-        - postgres
-        - ssg
     links:
-        - postgres
+        - {image: postgres, name: postgres-ssg}
 
 ghost:
-    name: ghost
-    port: "2368"
+    id:
+        image: ghost
+        name: ghost
+        port: "2368"
     images:
         - ubuntu
         - nodejs
-        - ghost
-    containers:
         - ghost
 
 hipache:
-    name: hipache
-    port: "80"
+    id:
+        image: hipache
+        name: hipache
+        port: "80"
     images:
         - ubuntu
         - redis
         - nodejs
         - hipache
-    containers:
-        - hipache
-        - redis
     links:
-        - redis
+        - {image: redis, name: redis-hipache}
