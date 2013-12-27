@@ -9,6 +9,8 @@ RUN apt-get -qqy install mysql-server-5.5
 ADD my.cnf /etc/mysql/my.cnf
 ADD start.sh start.sh
 
+VOLUME ["/var/lib/mysql"]
+
 EXPOSE 3306
 RUN rm /usr/sbin/policy-rc.d
 CMD ["/start.sh"]
