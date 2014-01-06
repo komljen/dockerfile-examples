@@ -67,8 +67,8 @@ start(){
     fi
 
     echo "Starting ${service_name}:"
-    docker run -d -name $service_name                                                \
-                  $service_port_cmd                                                  \
+    docker run -d -name $service_name                                          \
+                  $service_port_cmd                                            \
                   $links_cmd komljen/$service_image
 
     docker ps
