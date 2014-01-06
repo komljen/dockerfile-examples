@@ -37,10 +37,10 @@ stop(){
 }
 #-------------------------------------------------------------------------------
 start(){
-    id_name=$(shyaml get-value $key.id.name < $conf)
-    id_image=$(shyaml get-value $key.id.image < $conf)
-    id_port=$(shyaml get-value $key.id.port < $conf)
-    id_port_cmd=$(if [ ! -z "$id_port" ]; then echo "-p ${id_port}:${id_port}"; fi)
+    service_name=$(shyaml get-value $key.service.name < $conf)
+    service_image=$(shyaml get-value $key.service.image < $conf)
+    service_port=$(shyaml get-value $key.service.port < $conf)
+    service_port_cmd=$(if [ ! -z "$service_port" ]; then echo "-p ${service_port}:${service_port}"; fi)
 
     links_num=$(shyaml get-value $key.links < $conf | grep -c "name") || true
 
@@ -66,10 +66,10 @@ start(){
         done
     fi
 
-    echo "Starting ${id_name}:"
-    docker run -d -name $id_name                                                \
-                  $id_port_cmd                                                  \
-                  $links_cmd komljen/$id_image
+    echo "Starting ${service_name}:"
+    docker run -d -name $service_name                                                \
+                  $service_port_cmd                                                  \
+                  $links_cmd komljen/$service_image
 
     docker ps
 }
