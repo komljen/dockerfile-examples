@@ -32,6 +32,12 @@ All values in config.yaml except port needs to match directory name where Docker
 
 Tested on Ubuntu 12.04.3
 
+Trusted images
+======
+
+Insted of building images on your machine you can get them from trusted image repository on public docker index:
+https://index.docker.io/u/komljen/
+
 Image layers
 ======
 
