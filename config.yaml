@@ -1,6 +1,6 @@
 wp:
     service:
-        image: wordpress
+        image: komljen/wordpress
         name: wp
         port: "80"
     images:
@@ -10,11 +10,13 @@ wp:
         - php-apache
         - wordpress
     links:
-        - {image: mysql, name: mysql-wp}
+        - image: komljen/mysql
+          name: mysql-wp
+          alias: mysql
 
 redis:
     service:
-        image: redis
+        image: komljen/redis
         name: redis
         port: "6379"
     images:
@@ -23,7 +25,7 @@ redis:
 
 mongo:
     service:
-        image: mongodb
+        image: komljen/mongodb
         name: mongodb
         port: "27017"
     images:
@@ -32,7 +34,7 @@ mongo:
 
 rails:
     service:
-        image: rails-sample-app
+        image: komljen/rails-sample-app
         name: rails-sample-app
         port: "3000"
     images:
@@ -43,7 +45,7 @@ rails:
 
 ssg:
     service:
-        image: ssg
+        image: komljen/ssg
         name: ssg
         port: "3000"
     images:
@@ -53,11 +55,13 @@ ssg:
         - ruby-rails
         - ssg
     links:
-        - {image: postgres, name: postgres-ssg}
+        - image: komljen/postgres
+          name: postgres-ssg
+          alias: postgres
 
 ghost:
     service:
-        image: ghost
+        image: komljen/ghost
         name: ghost
         port: "2368"
     images:
@@ -67,7 +71,7 @@ ghost:
 
 hipache:
     service:
-        image: hipache
+        image: komljen/hipache
         name: hipache
         port: "80"
     images:
@@ -76,4 +80,6 @@ hipache:
         - nodejs
         - hipache
     links:
-        - {image: redis, name: redis-hipache}
+        - image: komljen/redis
+          name: redis-hipache
+          alias: redis
