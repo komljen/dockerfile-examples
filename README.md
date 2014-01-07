@@ -38,6 +38,8 @@ Trusted images
 Insted of building images on your machine you can get them from trusted image repository on public docker index:
 https://index.docker.io/u/komljen/
 
+If you skip build part with env.sh script, images will be automatically pulled from docker index.
+
 Image layers
 ======
 
@@ -67,7 +69,7 @@ git clone git@github.com:komljen/docker.git && cd docker
 WordPress example
 ======
 
-To build WordPress images run:
+To build WordPress images run ( https://github.com/komljen/docker#trusted-images ):
 ```
 ./env.sh build wp
 ```
@@ -97,7 +99,7 @@ mysql -h $MYSQL_PORT_3306_TCP_ADDR -u $WP_USER -p$WP_PASS
 Hipache example
 ======
 
-To build Hipache images run:
+To build Hipache images run ( https://github.com/komljen/docker#trusted-images ):
 ```
 ./env.sh build hipache
 ```
@@ -116,7 +118,7 @@ docker run -t -rm -link redis:redis komljen/redis /bin/bash -c \
 Ghost example
 ======
 
-To build Ghost images run:
+To build Ghost images run ( https://github.com/komljen/docker#trusted-images ):
 ```
 ./env.sh build ghost
 ```
