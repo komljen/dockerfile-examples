@@ -16,7 +16,7 @@ build(){
     echo "Build docker images:"
     for image in $images
     do
-        docker build -t komljen/$image $home/$image/.
+        docker build -rm -t komljen/$image $home/$image/.
     done
 }
 #-------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ rebuild(){
     echo "Rebuild docker images:"
     for image in $images
     do
-        docker build -no-cache -t komljen/$image $home/$image/.
+        docker build -no-cache -rm -t komljen/$image $home/$image/.
     done
 }
 #-------------------------------------------------------------------------------
@@ -85,12 +85,15 @@ kill(){
 #-------------------------------------------------------------------------------
 rm(){
     echo "Removing stopped containers:"
-    docker rm $(docker ps -a -q) || true
+    for container in $containers
+    do
+        docker rm $container || true
+    done
 }
 #-------------------------------------------------------------------------------
 rmi(){
     echo "Removing all untagged images:"
-    docker images | grep "^<none>" | awk '{print "docker rmi "$3}' | sh
+    docker images | grep "^<none>" | xargs docker rmi
 }
 #-------------------------------------------------------------------------------
 usage (){
