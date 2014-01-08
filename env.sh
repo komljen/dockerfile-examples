@@ -93,7 +93,7 @@ rm(){
 #-------------------------------------------------------------------------------
 rmi(){
     echo "Removing all untagged images:"
-    docker images | grep "^<none>" | xargs docker rmi
+    docker images | grep "^<none>" | awk '{print "docker rmi "$3}' | sh
 }
 #-------------------------------------------------------------------------------
 usage (){
