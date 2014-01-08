@@ -83,3 +83,11 @@ hipache:
         - image: komljen/redis
           name: redis-hipache
           alias: redis
+
+abh-jmeter:
+    images:
+        - ubuntu
+        - jdk6-oracle
+        - maven3
+        - jmeter-2.9-abh
+
