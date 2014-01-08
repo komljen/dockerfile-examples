@@ -28,7 +28,7 @@ Keys from config.yaml:
 ```
 
 **NOTE:**
-All values in config.yaml except port needs to match directory name where Dockerfile is located.
+Images values in config.yaml needs to match directory name where Dockerfile is located.
 
 Tested on Ubuntu 12.04.3
 
