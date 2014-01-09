@@ -59,7 +59,7 @@ Image layers
 	    |-- komljen/jdk6-oracle
 	    |   |-- komljen/tomcat
 	    |   |-- komljen/maven3
-	    |       | -- komljen/jmeter-2.9-abh
+	    |       |-- komljen/jmeter-2.9-abh
 	    |-- komljen/ruby
 	    |   |-- komljen/ruby-rails
 	    |       |-- komljen/ssg
