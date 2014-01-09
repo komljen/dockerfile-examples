@@ -14,6 +14,16 @@ wp:
           name: mysql-wp
           alias: mysql
 
+jenkins:
+    service:
+        image: komljen/jenkins
+        name: jenkins
+        port: "8080"
+    images:
+        - ubuntu
+        - jdk6-oracle
+        - jenkins
+
 redis:
     service:
         image: komljen/redis
