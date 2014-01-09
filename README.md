@@ -43,8 +43,28 @@ If you skip build part with env.sh script, images will be automatically pulled f
 Image layers
 ======
 
-<img src="https://dl.dropboxusercontent.com/s/7u6fw9ytl6kxdiu/image_layers.png" title="Image layers" />
-
+```
+|-- ubuntu:precise
+	|-- komljen/ubuntu
+	    |-- komljen/redis
+	    |-- komljen/apache
+	    |   |-- komljen/php-apache
+	    |       |-- komljen/wordpress
+	    |-- komljen/nodejs
+	    |   |-- komljen/ghost
+	    |   |-- komljen/hipache
+	    |-- komljen/postgres
+	    |-- komljen/mysql
+	    |-- komljen/mongo
+	    |-- komljen/jdk6-oracle
+	    |   |-- komljen/tomcat
+	    |   |-- komljen/maven3
+	    |       | -- komljen/jmeter-2.9-abh
+	    |-- komljen/ruby
+	    |   |-- komljen/ruby-rails
+	    |       |-- komljen/ssg
+	    |       |-- komljen/rails-sample-app
+```
 Dependencies
 ======
 
