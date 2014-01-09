@@ -19,12 +19,14 @@ Options:
 
 Keys from config.yaml:
     wp
+    jenkins
     redis
     mongo
     rails
     ssg
     ghost
     hipache
+    abh-jmeter
 ```
 
 **NOTE:**
@@ -58,6 +60,7 @@ Image layers
 	    |-- komljen/mongo
 	    |-- komljen/jdk6-oracle
 	    |   |-- komljen/tomcat
+	    |   |-- komljen/jenkins
 	    |   |-- komljen/maven3
 	    |       |-- komljen/jmeter-2.9-abh
 	    |-- komljen/ruby
