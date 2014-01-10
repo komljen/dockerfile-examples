@@ -46,6 +46,7 @@ Image layers
 ======
 
 ```
+
 |-- ubuntu:precise
 	|-- komljen/ubuntu
 	    |-- komljen/redis
@@ -67,6 +68,7 @@ Image layers
 	    |   |-- komljen/ruby-rails
 	    |       |-- komljen/ssg
 	    |       |-- komljen/rails-sample-app
+
 ```
 Dependencies
 ======
@@ -105,7 +107,7 @@ To start WordPress:
 ./env.sh start wp
 ```
 
-This command will search for dependencies (wp.links) and start them first if they are present. Then it will run new container which will be linked to dependencies. Also it will read port (wp.port) and name (wp.name).
+This command will search for dependencies (wp.links) and start them first if they are present. Then it will run new container which will be linked to dependencies. Also it will read port (wp.service.port) and name (wp.service.name).
 
 WordPress installation will be available at: http://localhost
 
