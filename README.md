@@ -88,7 +88,7 @@ apt-get -y install python-pip && pip install shyaml
 
 When all is ready clone git repository:
 ```
-git clone git@github.com:komljen/docker.git && cd docker
+git clone https://github.com/komljen/docker.git && cd docker
 ```
 
 WordPress example
