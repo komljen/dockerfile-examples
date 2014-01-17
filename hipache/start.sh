@@ -5,10 +5,7 @@
 #
 #===============================================================================
 echo "Waiting for redis:"
-until $(: </dev/tcp/$REDIS_PORT_6379_TCP_ADDR/$REDIS_PORT_6379_TCP_PORT)
-do
-   sleep 1
-done
+./tcp_wait.sh $REDIS_PORT_6379_TCP_ADDR $REDIS_PORT_6379_TCP_PORT
 #-------------------------------------------------------------------------------
 sed -e "s/localhost/$REDIS_PORT_6379_TCP_ADDR/g" -i config.json
 #-------------------------------------------------------------------------------

@@ -5,13 +5,10 @@
 #
 #===============================================================================
 echo "Waiting for mysql:"
-until $(: </dev/tcp/$MYSQL_PORT_3306_TCP_ADDR/$MYSQL_PORT_3306_TCP_PORT)
-do
-    sleep 1
-done
+./tcp_wait.sh $MYSQL_PORT_3306_TCP_ADDR $MYSQL_PORT_3306_TCP_PORT
 #-------------------------------------------------------------------------------
 echo "Creating database:"
-./create_db.sh
+./create_db_mysql.sh $WP_DB $WP_USER $WP_PASS
 #-------------------------------------------------------------------------------
 sed -e "s/database_name_here/$WP_DB/
 s/username_here/$WP_USER/

@@ -10,7 +10,6 @@ ADD http://wordpress.org/latest.tar.gz wordpress.tar.gz
 RUN tar xzf wordpress.tar.gz -C $APP_ROOT --strip-components 1
 RUN rm wordpress.tar.gz
 
-ADD create_db.sh create_db.sh
 ADD start.sh start.sh
 
 VOLUME ["/var/www"]

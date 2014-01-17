@@ -5,13 +5,10 @@
 #
 #===============================================================================
 echo "Waiting for postgres:"
-until $(: </dev/tcp/$POSTGRES_PORT_5432_TCP_ADDR/$POSTGRES_PORT_5432_TCP_PORT)
-do
-    sleep 1
-done
+./tcp_wait.sh $POSTGRES_PORT_5432_TCP_ADDR $POSTGRES_PORT_5432_TCP_PORT
 #-------------------------------------------------------------------------------
 echo "Creating database:"
-./create_db.sh
+./create_db_pg.sh $RAILS_DB $RAILS_USER $RAILS_PASS
 #-------------------------------------------------------------------------------
 source /usr/local/rvm/scripts/rvm
 echo "Pulling latest changes:"

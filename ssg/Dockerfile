@@ -9,7 +9,6 @@ ENV APP_ROOT /data/app
 RUN git clone https://github.com/ssg-org/ssg.git $APP_ROOT
 RUN cd $APP_ROOT && /bin/bash -c -l 'bundle install'
 
-ADD create_db.sh create_db.sh
 ADD start.sh start.sh
 
 VOLUME ["/data/app"]
