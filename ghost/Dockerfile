@@ -1,7 +1,7 @@
 FROM komljen/nodejs
 MAINTAINER Alen Komljen <alen.komljen@live.com>
 
-ENV GHOST_VERSION 0.4.0
+ENV GHOST_VERSION 0.4.1
 ENV APP_ROOT /data/app
 
 RUN curl -sLO http://ghost.org/archives/ghost-$GHOST_VERSION.zip
