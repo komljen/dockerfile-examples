@@ -3,9 +3,6 @@ MAINTAINER Alen Komljen <alen.komljen@live.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -s /bin/true /sbin/initctl
-
 RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup
 RUN echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache
 
