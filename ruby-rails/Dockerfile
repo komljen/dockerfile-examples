@@ -12,4 +12,4 @@ RUN apt-get -qqy install libpq-dev postgresql-client
 RUN apt-get -qqy install libmysqld-dev libmysqlclient-dev mysql-client
 RUN apt-get -qqy install libsqlite3-dev
 
-RUN /bin/bash -c -l 'gem install rails -v $RAILS_VERSION'
+RUN /bin/bash -l -c "gem install rails -v $RAILS_VERSION"
