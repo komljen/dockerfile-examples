@@ -1,7 +1,7 @@
 FROM komljen/ruby
 MAINTAINER Alen Komljen <alen.komljen@live.com>
 
-ENV RAILS_VERSION 3.2.16
+ENV RAILS_VERSION 3.2.17
 
 RUN add-apt-repository -y ppa:chris-lea/node.js
 RUN apt-get -qq update
