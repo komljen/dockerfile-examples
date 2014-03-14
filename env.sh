@@ -54,13 +54,13 @@ start(){
             link_alias=$(shyaml get-value $key.links.$n < $conf | grep alias | cut -d' ' -f2)
 
             echo "Starting ${link_name}:"
-            docker run -d -name $link_name $link_image
+            docker run -d --name $link_name $link_image
 
             if [ ! -z "$links_cmd" ]
             then
-                links_cmd=$(echo "-link ${link_name}:${link_alias}")
+                links_cmd=$(echo "--link ${link_name}:${link_alias}")
             else
-                links_cmd=$(echo $links_cmd" -link ${link_name}:${link_alias}")
+                links_cmd=$(echo $links_cmd" --link ${link_name}:${link_alias}")
             fi
 
             n=$(( n+1 ))
@@ -68,7 +68,7 @@ start(){
     fi
 
     echo "Starting ${service_name}:"
-    docker run -d -name $service_name                                          \
+    docker run -d --name $service_name                                         \
                   $service_port_cmd                                            \
                   $links_cmd $service_image
 
