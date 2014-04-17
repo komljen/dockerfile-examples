@@ -4,30 +4,29 @@ Docker
 Dockerfile examples that can be reused for whatever you want.
 
 Script env.sh reads config.yaml, so you don't need to update this script if you want to change something or to add new Docker image. Usage info:
-```
-USAGE: ./env.sh option key
 
-Options:
-    start
-    stop
-    restart
-    build
-    rebuild
-    kill
-    rm
-    rmi
+    USAGE: ./env.sh option key
 
-Keys from config.yaml:
-    wp
-    jenkins
-    redis
-    mongo
-    rails
-    ssg
-    ghost
-    hipache
-    abh-jmeter
-```
+    Options:
+        start
+        stop
+        restart
+        build
+        rebuild
+        kill
+        rm
+        rmi
+
+    Keys from config.yaml:
+        wp
+        jenkins
+        redis
+        mongo
+        rails
+        ssg
+        ghost
+        hipache
+        abh-jmeter
 
 **NOTE:**
 Images values in config.yaml needs to match directory name where Dockerfile is located.
@@ -45,30 +44,28 @@ If you skip build part with env.sh script, images will be automatically pulled f
 Image layers
 ======
 
-```
-|-- ubuntu:precise
-	|-- komljen/ubuntu
-	    |-- komljen/redis
-	    |-- komljen/apache
-	    |   |-- komljen/php-apache
-	    |       |-- komljen/wordpress
-	    |-- komljen/nodejs
-	    |   |-- komljen/ghost
-	    |   |-- komljen/hipache
-	    |-- komljen/postgres
-	    |-- komljen/mysql
-	    |-- komljen/mongo
-	    |-- komljen/jdk6-oracle
-	    |   |-- komljen/tomcat
-	    |   |-- komljen/jenkins
-	    |   |-- komljen/maven3
-	    |       |-- komljen/jmeter-2.9-abh
-	    |-- komljen/ruby
-	    |   |-- komljen/ruby-rails
-	    |       |-- komljen/ssg
-	    |       |-- komljen/rails-sample-app
+    |-- ubuntu:precise
+	    |-- komljen/ubuntu
+	        |-- komljen/redis
+	        |-- komljen/apache
+	        |   |-- komljen/php-apache
+	        |       |-- komljen/wordpress
+	        |-- komljen/nodejs
+	        |   |-- komljen/ghost
+	        |   |-- komljen/hipache
+	        |-- komljen/postgres
+	        |-- komljen/mysql
+	        |-- komljen/mongo
+	        |-- komljen/jdk6-oracle
+	        |   |-- komljen/tomcat
+	        |   |-- komljen/jenkins
+	        |   |-- komljen/maven3
+	        |       |-- komljen/jmeter-2.9-abh
+	        |-- komljen/ruby
+	        |   |-- komljen/ruby-rails
+	        |       |-- komljen/ssg
+	        |       |-- komljen/rails-sample-app
 
-```
 Dependencies
 ======
 
