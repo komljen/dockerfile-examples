@@ -46,7 +46,6 @@ Image layers
 ======
 
 ```
-
 |-- ubuntu:precise
 	|-- komljen/ubuntu
 	    |-- komljen/redis
@@ -74,80 +73,98 @@ Dependencies
 ======
 
 Docker 0.9 and above. Installation on Ubuntu 12.04.4:
-```
-wget -qO- https://get.docker.io/gpg | apt-key add -
-echo "deb http://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
-apt-get update
-apt-get -y install lxc-docker
-```
+
+    wget -qO- https://get.docker.io/gpg | apt-key add -
+    echo "deb http://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
+    apt-get update
+    apt-get -y install lxc-docker
 
 Shyaml shell yaml parser:
-```
-apt-get -y install python-pip && pip install shyaml
-```
+
+    apt-get -y install python-pip && pip install shyaml
 
 When all is ready clone git repository:
-```
-git clone https://github.com/komljen/docker.git && cd docker
-```
+
+    git clone https://github.com/komljen/docker.git && cd docker
+
+Mac OSX
+======
+
+Requirements to run docker on Mac OSX:
+
+- VirtualBox
+- brew
+
+Install and run boot2docker:
+
+    brew install boot2docker
+    boot2docker init
+    boot2docker up
+
+Export DOCKER_HOST variable and test if docker client is connected to server:
+    
+    export DOCKER_HOST=tcp://localhost:4243
+    docker ps
+    
+Tools required for my env.sh script:
+
+    brew install python
+    brew install libyaml
+    pip install shyaml
+
+Port forwarding example from 192.168.100.100:8080 on host to port 80 inside boot2docker-vm:
+    
+    VBoxManage modifyvm boot2docker-vm --natpf1 "web,tcp,192.168.100.100,8080,,80"
 
 WordPress example
 ======
 
 To build WordPress images run ( https://github.com/komljen/docker#trusted-images ):
-```
-./env.sh build wp
-```
+
+    ./env.sh build wp
 
 This command will build all images from config.yaml (wp.images) needed by WordPress.
 
 
 To start WordPress:
-```
-./env.sh start wp
-```
+
+    ./env.sh start wp
 
 This command will search for dependencies (wp.links) and start them first if they are present. Then it will run new container which will be linked to dependencies. Also it will read port (wp.service.port) and name (wp.service.name).
 
 WordPress installation will be available at: http://localhost
 
 Also thanks to Docker VOLUMES you can access to Apache root directory (/var/www) or to MySQL from new container:
-```
-docker run -i -t --volumes-from wordpress --link mysql:mysql komljen/wordpress /bin/bash
-```
+
+    docker run -i -t --volumes-from wordpress --link mysql:mysql komljen/wordpress /bin/bash
 
 To access to MySQL database from container:
-```
-mysql -h $MYSQL_PORT_3306_TCP_ADDR -u $WP_USER -p$WP_PASS
-```
+
+    mysql -h $MYSQL_PORT_3306_TCP_ADDR -u $WP_USER -p$WP_PASS
 
 Hipache example
 ======
 
 To build Hipache images run ( https://github.com/komljen/docker#trusted-images ):
-```
-./env.sh build hipache
-```
+
+    ./env.sh build hipache
 
 To start Hipache:
-```
-./env.sh start hipache
-```
+
+    ./env.sh start hipache
 
 Updating redis configuration from new container:
-```
-docker run -t -rm --link redis:redis komljen/redis /bin/bash -c \
-'redis-cli -h $REDIS_PORT_6379_TCP_ADDR rpush frontend:www.dotcloud.com mywebsite'
-```
+
+    docker run -t -rm --link redis:redis komljen/redis /bin/bash -c \
+           'redis-cli -h $REDIS_PORT_6379_TCP_ADDR rpush frontend:www.dotcloud.com mywebsite'
 
 Ghost example
 ======
 
 To build Ghost images run ( https://github.com/komljen/docker#trusted-images ):
-```
-./env.sh build ghost
-```
+
+    ./env.sh build ghost
 
 To start Ghost:
-```
-./env.sh start ghost
+
+    ./env.sh start ghost
