@@ -32,7 +32,7 @@ Keys from config.yaml:
 **NOTE:**
 Images values in config.yaml needs to match directory name where Dockerfile is located.
 
-Tested on Ubuntu 12.04.3
+Tested on Ubuntu 12.04.4
 
 Trusted images
 ======
@@ -73,7 +73,7 @@ Image layers
 Dependencies
 ======
 
-Docker 0.6.6 and above. Installation on Ubuntu 12.04.3:
+Docker 0.9 and above. Installation on Ubuntu 12.04.4:
 ```
 wget -qO- https://get.docker.io/gpg | apt-key add -
 echo "deb http://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
@@ -113,7 +113,7 @@ WordPress installation will be available at: http://localhost
 
 Also thanks to Docker VOLUMES you can access to Apache root directory (/var/www) or to MySQL from new container:
 ```
-docker run -i -t -volumes-from wordpress -link mysql:mysql komljen/wordpress /bin/bash
+docker run -i -t --volumes-from wordpress --link mysql:mysql komljen/wordpress /bin/bash
 ```
 
 To access to MySQL database from container:
@@ -136,7 +136,7 @@ To start Hipache:
 
 Updating redis configuration from new container:
 ```
-docker run -t -rm -link redis:redis komljen/redis /bin/bash -c \
+docker run -t -rm --link redis:redis komljen/redis /bin/bash -c \
 'redis-cli -h $REDIS_PORT_6379_TCP_ADDR rpush frontend:www.dotcloud.com mywebsite'
 ```
 
