@@ -80,7 +80,7 @@ Shyaml shell yaml parser:
 
     apt-get -y install python-pip && pip install shyaml
 
-When all is ready clone git repository:
+When all is ready clone this git repository:
 
     git clone https://github.com/komljen/docker.git && cd docker
 
@@ -112,6 +112,10 @@ Tools required for my env.sh script:
 Port forwarding example from 192.168.100.100:8080 on host to port 80 inside boot2docker-vm:
     
     VBoxManage modifyvm boot2docker-vm --natpf1 "web,tcp,192.168.100.100,8080,,80"
+
+When all is ready clone this git repository:
+
+    git clone https://github.com/komljen/docker.git && cd docker
 
 WordPress example
 ======
