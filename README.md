@@ -80,7 +80,7 @@ Shyaml shell yaml parser:
 
 When all is ready clone this git repository:
 
-    git clone https://github.com/komljen/docker.git && cd docker
+    git clone https://github.com/komljen/dockerfile-examples.git && cd dockerfile-examples
 
 Mac OSX
 ======
@@ -97,8 +97,7 @@ Install and run boot2docker:
     boot2docker up
 
 Export DOCKER_HOST variable and test if docker client is connected to server:
-    
-    export DOCKER_HOST=tcp://localhost:4243
+
     docker ps
     
 Tools required for my env.sh script:
@@ -113,12 +112,12 @@ Port forwarding example from 192.168.100.100:8080 on host to port 80 inside boot
 
 When all is ready clone this git repository:
 
-    git clone https://github.com/komljen/docker.git && cd docker
+    git clone https://github.com/komljen/dockerfile-examples.git && cd dockerfile-examples
 
 WordPress example
 ======
 
-To build WordPress images run ( https://github.com/komljen/docker#trusted-images ):
+To build WordPress images run ( https://github.com/komljen/dockerfile-examples#trusted-images ):
 
     ./env.sh build wp
 
@@ -144,7 +143,7 @@ To access to MySQL database from container:
 Hipache example
 ======
 
-To build Hipache images run ( https://github.com/komljen/docker#trusted-images ):
+To build Hipache images run ( https://github.com/komljen/dockerfile-examples#trusted-images ):
 
     ./env.sh build hipache
 
@@ -160,7 +159,7 @@ Updating redis configuration from new container:
 Ghost example
 ======
 
-To build Ghost images run ( https://github.com/komljen/docker#trusted-images ):
+To build Ghost images run ( https://github.com/komljen/dockerfile-examples#trusted-images ):
 
     ./env.sh build ghost
 
