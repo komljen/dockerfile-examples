@@ -106,9 +106,9 @@ Tools required for my env.sh script:
     brew install libyaml
     pip install shyaml
 
-Port forwarding example from 192.168.100.100:8080 on host to port 80 inside boot2docker-vm:
+Port forwarding example from localhost:8080 to port 80 inside boot2docker-vm:
     
-    VBoxManage modifyvm boot2docker-vm --natpf1 "web,tcp,192.168.100.100,8080,,80"
+    VBoxManage controlvm boot2docker-vm natpf1 "web,tcp,127.0.0.1,8080,,80"
 
 When all is ready clone this git repository:
 
