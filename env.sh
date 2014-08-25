@@ -16,7 +16,7 @@ build(){
     echo "Build docker images:"
     for image in $images
     do
-        docker build -rm -t komljen/$image $home/$image/.
+        docker build --rm -t komljen/$image $home/$image/.
     done
 }
 #-------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ rebuild(){
     echo "Rebuild docker images:"
     for image in $images
     do
-        docker build -no-cache -rm -t komljen/$image $home/$image/.
+        docker build --no-cache --rm -t komljen/$image $home/$image/.
     done
 }
 #-------------------------------------------------------------------------------

@@ -9,7 +9,6 @@ RUN echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache
 RUN echo $'#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d
 RUN chmod +x /usr/sbin/policy-rc.d
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get -qq update
 RUN apt-get -qqy upgrade
 RUN apt-get -qqy install python-software-properties vim pwgen unzip curl git-core
