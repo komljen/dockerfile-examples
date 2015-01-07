@@ -6,13 +6,16 @@ ENV RAILS_USER rails
 ENV RAILS_DB rails
 ENV APP_ROOT /data/app
 
-RUN git clone https://github.com/ssg-org/ssg.git $APP_ROOT
-RUN cd $APP_ROOT && /bin/bash -c -l 'bundle install'
+RUN \
+  git clone https://github.com/ssg-org/ssg.git ${APP_ROOT} && \
+  cd ${APP_ROOT} && \
+  /bin/bash -c -l 'bundle install'
 
 ADD start.sh start.sh
 
-VOLUME ["/data/app"]
+VOLUME ["$APP_ROOT"]
 
-EXPOSE 3000
 RUN rm /usr/sbin/policy-rc.d
 CMD ["/start.sh"]
+
+EXPOSE 3000

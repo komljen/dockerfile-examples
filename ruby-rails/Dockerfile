@@ -3,13 +3,20 @@ MAINTAINER Alen Komljen <alen.komljen@live.com>
 
 ENV RAILS_VERSION 3.2.17
 
-RUN add-apt-repository -y ppa:chris-lea/node.js
-RUN apt-get -qq update
-RUN apt-get -qqy install nodejs
+RUN \
+  add-apt-repository -y ppa:chris-lea/node.js && \
+  apt-get update && \
+  apt-get -y install \
+          nodejs \
+          libxslt-dev \
+          libxml2-dev \
+          libpq-dev \
+          postgresql-client \
+          libmysqld-dev \
+          libmysqlclient-dev \
+          mysql-client \
+          libsqlite3-dev && \
+  rm -rf /var/lib/apt/lists/*
 
-RUN apt-get -qqy install libxslt-dev libxml2-dev
-RUN apt-get -qqy install libpq-dev postgresql-client
-RUN apt-get -qqy install libmysqld-dev libmysqlclient-dev mysql-client
-RUN apt-get -qqy install libsqlite3-dev
-
-RUN /bin/bash -l -c "gem install rails -v $RAILS_VERSION"
+RUN \
+  /bin/bash -l -c 'gem install rails -v ${RAILS_VERSION}'

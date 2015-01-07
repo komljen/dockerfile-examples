@@ -21,7 +21,7 @@ jenkins:
         port: "8080"
     images:
         - ubuntu
-        - jdk6-oracle
+        - jdk-oracle
         - jenkins
 
 redis:
@@ -33,7 +33,7 @@ redis:
         - ubuntu
         - redis
 
-mongo:
+mongodb:
     service:
         image: komljen/mongodb
         name: mongodb
@@ -42,7 +42,7 @@ mongo:
         - ubuntu
         - mongodb
 
-rails:
+rails-sample-app:
     service:
         image: komljen/rails-sample-app
         name: rails-sample-app
@@ -97,7 +97,7 @@ hipache:
 abh-jmeter:
     images:
         - ubuntu
-        - jdk6-oracle
-        - maven3
-        - jmeter-2.9-abh
+        - jdk-oracle
+        - maven
+        - jmeter-abh
 

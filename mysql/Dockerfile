@@ -4,13 +4,18 @@ MAINTAINER Alen Komljen <alen.komljen@live.com>
 ENV USER root
 ENV PASS aiPeekai0AeZ2meephoolais7doo1thu
 
-RUN apt-get -qqy install mysql-server-5.5
+RUN \
+  apt-get update && \
+  apt-get -y install \
+          mysql-server-5.5 && \
+  rm -rf /var/lib/apt/lists/*
 
 ADD my.cnf /etc/mysql/my.cnf
 ADD start.sh start.sh
 
 VOLUME ["/var/lib/mysql"]
 
-EXPOSE 3306
 RUN rm /usr/sbin/policy-rc.d
 CMD ["/start.sh"]
+
+EXPOSE 3306

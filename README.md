@@ -29,8 +29,6 @@ Script env.sh reads config.yaml, so you don't need to update this script if you 
 **NOTE:**
 Images values in config.yaml needs to match directory name where Dockerfile is located.
 
-Tested on Ubuntu 12.04.4
-
 Trusted images
 ======
 
@@ -54,11 +52,11 @@ Image layers
 	        |-- komljen/postgres
 	        |-- komljen/mysql
 	        |-- komljen/mongo
-	        |-- komljen/jdk6-oracle
+	        |-- komljen/jdk-oracle
 	        |   |-- komljen/tomcat
 	        |   |-- komljen/jenkins
-	        |   |-- komljen/maven3
-	        |       |-- komljen/jmeter-2.9-abh
+	        |   |-- komljen/maven
+	        |       |-- komljen/jmeter-abh
 	        |-- komljen/ruby
 	        |   |-- komljen/ruby-rails
 	        |       |-- komljen/ssg
@@ -67,7 +65,7 @@ Image layers
 Dependencies
 ======
 
-Docker 0.9 and above. Installation on Ubuntu 12.04.4:
+Docker 1.3 and above. Installation on Ubuntu 14.04:
 
     wget -qO- https://get.docker.io/gpg | apt-key add -
     echo "deb http://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
