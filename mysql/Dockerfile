@@ -10,8 +10,8 @@ RUN \
           mysql-server-5.5 && \
   rm -rf /var/lib/apt/lists/*
 
-ADD my.cnf /etc/mysql/my.cnf
-ADD start.sh start.sh
+COPY my.cnf /etc/mysql/my.cnf
+COPY start.sh start.sh
 
 VOLUME ["/var/lib/mysql"]
 

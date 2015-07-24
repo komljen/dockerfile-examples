@@ -12,7 +12,7 @@ RUN \
   tar xzf wordpress.tar.gz -C ${APP_ROOT} --strip-components 1 && \
   rm wordpress.tar.gz
 
-ADD start.sh start.sh
+COPY start.sh start.sh
 
 VOLUME ["$APP_ROOT"]
 

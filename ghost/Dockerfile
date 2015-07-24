@@ -14,7 +14,7 @@ RUN \
   cd ${APP_ROOT} && \
   npm install --production
 
-ADD start.sh start.sh
+COPY start.sh start.sh
 
 VOLUME ["$APP_ROOT"]
 

@@ -16,7 +16,7 @@ RUN \
           postgresql-contrib-${PG_VERSION} && \
   rm -rf /var/lib/apt/lists/*
 
-ADD start.sh start.sh
+COPY start.sh start.sh
 
 RUN rm /usr/sbin/policy-rc.d
 CMD ["/start.sh"]

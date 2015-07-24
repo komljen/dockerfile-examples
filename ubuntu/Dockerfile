@@ -25,6 +25,6 @@ RUN \
           git-core && \
   rm -rf /var/lib/apt/lists/*
 
-ADD tcp_wait.sh tcp_wait.sh
-ADD create_db_pg.sh create_db_pg.sh
-ADD create_db_mysql.sh create_db_mysql.sh
+COPY tcp_wait.sh tcp_wait.sh
+COPY create_db_pg.sh create_db_pg.sh
+COPY create_db_mysql.sh create_db_mysql.sh
