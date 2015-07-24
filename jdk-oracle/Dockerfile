@@ -10,6 +10,7 @@ RUN \
        | /usr/bin/debconf-set-selections && \
   apt-get -y install \
           oracle-java${JAVA_VERSION}-installer && \
-  rm -rf /var/lib/apt/lists/*
+  rm -rf /var/lib/apt/lists/* && \
+  rm /var/cache/oracle-jdk${JAVA_VERSION}-installer/jdk-*.tar.gz
 
 RUN update-alternatives --display java
