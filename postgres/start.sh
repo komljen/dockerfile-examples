@@ -18,5 +18,5 @@ CREATE USER $USER WITH SUPERUSER PASSWORD '$PASS';
 EOF
 #-------------------------------------------------------------------------------
 echo "Starting postgres:"
-su postgres -c "${POSTGRES} -D ${DATA} -c config_file=${CONF}"
+exec su postgres -c "${POSTGRES} -D ${DATA} -c config_file=${CONF}"
 #===============================================================================

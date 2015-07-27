@@ -10,5 +10,5 @@ echo "Waiting for redis:"
 sed -e "s/localhost/$REDIS_PORT_6379_TCP_ADDR/g" -i config.json
 #-------------------------------------------------------------------------------
 echo "Starting hipache:"
-/usr/bin/hipache -c config.json
+exec /usr/bin/hipache -c config.json
 #===============================================================================

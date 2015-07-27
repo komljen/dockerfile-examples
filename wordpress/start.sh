@@ -28,5 +28,5 @@ chown -R www-data: $APP_ROOT
 #-------------------------------------------------------------------------------
 echo "Starting wordpress:"
 source /etc/apache2/envvars
-/usr/sbin/apache2 -D FOREGROUND
+exec /usr/sbin/apache2 -D FOREGROUND
 #===============================================================================
