@@ -1,7 +1,5 @@
 Dockerfile examples
 ======
-[![Flattr this git repo](https://img.shields.io/badge/donate-flattr-red.svg)](https://flattr.com/submit/auto?user_id=komljen&url=https://github.com/komljen/dockerfile-examples
-&title=Dockerfile examples&language=&tags=github&category=software)
 
 Script env.sh reads config.yaml, so you don't need to update this script if you want to change something or to add new Docker image. Usage info:
 
